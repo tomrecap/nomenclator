@@ -3,8 +3,21 @@ class DefinitionsController < ApplicationController
   def show
     require 'open-uri'
     
-    url = "http://lysy2.archives.nd.edu/cgi-bin/words.exe?#{params[:latin_word]}"
+    url = "http://perseus.uchicago.edu/perseus-cgi/morph.pl?token=#{params[:q]}&lang=latin"    
     doc = Nokogiri::HTML(open(url))
+    
+    result = {
+      token: doc.at_css("td.token"),
+      lemma: doc.at_css("th.lemma"),
+      lemmaDefinition: doc.at_css(".shortdef"),
+      form: doc.at_css("td.code")
+    }
+    
+    result.each do |key, value|
+      result[key] = strip_tags(value.to_s)
+    end
+    
+    render json: result  
   end
 
 end

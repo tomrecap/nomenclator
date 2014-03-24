@@ -7,14 +7,16 @@ var NomenclatorController = function ($scope, $http) {
 		{
 			token: "dulce",
 			lemma: "dulce",
-			partOfSpeech: "adv.",
+			form: "adv. indec.",
+			// partOfSpeech: "adv.",
 			lemmaDefinition: "agreeably, charmingly, delightfully",
 			needToCheck: false
 		},
 		{
 			token: "ridentem",
 			lemma: "rideo",
-			partOfSpeech: "v.",
+			form: "3rd sg. m. pres. act. prtcpl.",
+			// partOfSpeech: "v.",
 			lemmaDefinition: "to laugh",
 			needToCheck: false
 		}	
@@ -22,7 +24,7 @@ var NomenclatorController = function ($scope, $http) {
 	
 	$scope.definition = function (wordEntry) {
 		if ( wordEntry.lemma ) {
-			return wordEntry.lemma + ": " + wordEntry.partOfSpeech + " " + wordEntry.lemmaDefinition
+			return wordEntry.lemma + ": " + wordEntry.form + " " + wordEntry.lemmaDefinition
 		} else {
 			return null;
 		}
@@ -32,7 +34,7 @@ var NomenclatorController = function ($scope, $http) {
 		var newWord = {
 			token: $scope.newToken,
 			lemma: null,
-			partOfSpeech: null,
+			form: null,
 			lemmaDefinition: null,
 			needToCheck: true
 		};
@@ -49,19 +51,12 @@ var NomenclatorController = function ($scope, $http) {
 	$scope.getDefinitions = function () {
 		angular.forEach($scope.words, function (word) {
 			if ( word.needToCheck ) {
-				$http.get("my api url")
+				apiUrl = "http://localhost:3000/definitions?q=" + word.token
+				
+				$http.get(apiUrl)
 					.success(function (data, status, requestHeaders, config) {
-						console.log("success!")
-						console.log("word: ");
-						console.log(word);
-						console.log("data: ");
-						console.log(data);
-						console.log("status: ");
-						console.log(status);
-						console.log("headers: ");
-						console.log(requestHeaders);
-						console.log("config: ");
-						console.log(config);
+						angular.extend(word, data)
+						word.needToCheck = false
 					})
 					.error(function (data, status, headers, config) {
 						console.log("lookup failed!");
