@@ -1,4 +1,7 @@
 Nomenclator::Application.routes.draw do
-  root to: "static_page#show"
-  # resource :static_page
+  resource :static_pages, only: :show
+  resource :definitions, only: :show
+  
+  root to: "static_pages#show"
+  
 end

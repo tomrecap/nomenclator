@@ -1,0 +1,96 @@
+/*--------- resets -------*/
+html, body, article, section, form, ul, li, form, input, button {
+	margin:0;
+	border:0;
+	outline:0;
+	padding:0;
+	
+	-webkit-appearance:none;
+	
+	font:inherit;
+	vertical-align:baseline;
+}
+
+ul {
+	list-style:none;
+}
+
+body {
+	font-size:18px;
+	font-family:Helvetica, sans-serif;
+	background:white;
+	line-height:135%;
+}
+
+input, button {
+	display:inline-block;
+/*	border: 2px solid black;*/
+/*	border-radius:5px;*/
+	padding:4px;
+}
+
+input[type="submit"]:hover, button:hover {
+	background:lightgreen;
+}
+
+/*-------- layout ----------*/
+
+.main-content {
+	display:block;
+	position:relative;
+	
+	width:750px;
+	margin-left:auto;
+	margin-right:auto;
+	
+	padding:50px;
+	
+	background:white;
+}
+
+.group:after {
+	display:block;
+	content:"";
+	clear:both;
+}
+
+article.text {
+	display:block;
+	position:relative;
+	float:left;
+	width:400px;
+}
+
+article.text p {
+	padding-bottom:5px;
+}
+
+article.text a {
+	text-decoration:none;
+	font:inherit;
+	color:inherit;
+}
+
+section.vocabulary {
+	display:block;
+	position:relative;
+	float:left;
+	width:275px;
+	margin-left:25px;
+	padding:25px;
+	background:gainsboro;
+}
+
+section.vocabulary > ul {
+}
+
+ul.vocabulary-entries > li {
+	padding-bottom:5px;
+	padding-top:10px;
+	border-bottom:1px solid #ccc;
+}
+
+section.vocabulary button {
+	margin-top:5px;
+	margin-bottom:5px;
+}
