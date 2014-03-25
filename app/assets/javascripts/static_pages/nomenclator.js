@@ -51,7 +51,7 @@ function NomenclatorController($scope, $http) {
 	$scope.getDefinitions = function () {
 		angular.forEach($scope.words, function (word) {
 			if ( word.needToCheck ) {
-				apiUrl = "http://localhost:3000/definitions?q=" + word.token
+				apiUrl = "definitions?q=" + word.token
 				
 				$http.get(apiUrl)
 					.success(function (data, status, requestHeaders, config) {
