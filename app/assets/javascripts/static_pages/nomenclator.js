@@ -1,8 +1,8 @@
 var nomenclator = angular.module("nomenclator", []);
 
-nomenclator.controller("NomenclatorController", ["$scope", "$http", "$event", NomenclatorController]);
+nomenclator.controller("NomenclatorController", ["$scope", "$http",
 
-var NomenclatorController = function ($scope, $http) {
+function NomenclatorController($scope, $http) {
 	$scope.words = [	
 		{
 			token: "dulce",
@@ -69,4 +69,4 @@ var NomenclatorController = function ($scope, $http) {
 			}
 		});
 	};
-};
+}]);
