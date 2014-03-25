@@ -4,27 +4,29 @@ nomenclator.controller("NomenclatorController", ["$scope", "$http",
 
 function NomenclatorController($scope, $http) {
 	$scope.words = [	
-		{
-			token: "dulce",
-			lemma: "dulce",
-			form: "adv. indec.",
-			// partOfSpeech: "adv.",
-			lemmaDefinition: "agreeably, charmingly, delightfully",
-			needToCheck: false
-		},
-		{
-			token: "ridentem",
-			lemma: "rideo",
-			form: "3rd sg. m. pres. act. prtcpl.",
-			// partOfSpeech: "v.",
-			lemmaDefinition: "to laugh",
-			needToCheck: false
-		}	
+		// {
+		// 	token: "dulce",
+		// 	lemma: "dulce",
+		// 	form: "adv. indec.",
+		// 	// partOfSpeech: "adv.",
+		// 	lemmaDefinition: "agreeably, charmingly, delightfully",
+		// 	needToCheck: false
+		// },
+		// {
+		// 	token: "ridentem",
+		// 	lemma: "rideo",
+		// 	form: "3rd sg. m. pres. act. prtcpl.",
+		// 	// partOfSpeech: "v.",
+		// 	lemmaDefinition: "to laugh",
+		// 	needToCheck: false
+		// }	
 	];
 	
 	$scope.definition = function (wordEntry) {
-		if ( wordEntry.lemma ) {
+		if ( wordEntry.lemma && wordEntry.expanded ) {
 			return wordEntry.lemma + ": " + wordEntry.form + " " + wordEntry.lemmaDefinition
+		} else if ( wordEntry.expanded ){
+			return "Fetching definition; please wait."
 		} else {
 			return null;
 		}
@@ -36,11 +38,13 @@ function NomenclatorController($scope, $http) {
 			lemma: null,
 			form: null,
 			lemmaDefinition: null,
-			needToCheck: true
+			needToCheck: true,
+			expanded:false
 		};
 
 		$scope.words.push(newWord);
 		$scope.newToken = "";
+		$scope.defineWord(newWord);
 	};
 	
 	$scope.addClickedWord = function ($event) {
@@ -51,11 +55,17 @@ function NomenclatorController($scope, $http) {
 	$scope.getDefinitions = function () {
 		angular.forEach($scope.words, function (word) {
 			if ( word.needToCheck ) {
-				apiUrl = "definitions?q=" + word.token
+				$scope.defineWord(word);
+			}
+		});
+	};
+	
+	$scope.defineWord = function (wordObject) {
+				apiUrl = "definitions?q=" + wordObject.token
 				
 				$http.get(apiUrl)
 					.success(function (data, status, requestHeaders, config) {
-						angular.extend(word, data)
+						angular.extend(wordObject, data)
 						word.needToCheck = false
 					})
 					.error(function (data, status, headers, config) {
@@ -65,8 +75,5 @@ function NomenclatorController($scope, $http) {
 						console.log("status: ");
 						console.log(status);
 					})
-				
-			}
-		});
 	};
 }]);
