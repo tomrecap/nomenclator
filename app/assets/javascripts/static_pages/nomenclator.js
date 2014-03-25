@@ -1,6 +1,6 @@
 var nomenclator = angular.module("nomenclator", []);
 
-nomenclator.controller("NomenclatorController", ["$scope", "$http", NomenclatorController]);
+nomenclator.controller("NomenclatorController", ["$scope", "$http", "$event", NomenclatorController]);
 
 var NomenclatorController = function ($scope, $http) {
 	$scope.words = [	
