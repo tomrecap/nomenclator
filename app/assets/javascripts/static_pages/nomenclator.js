@@ -1,6 +1,6 @@
 var nomenclator = angular.module("nomenclator", []);
 
-nomenclator.controller("NomenclatorController", NomenclatorController);
+nomenclator.controller("NomenclatorController", ["$scope", "$http", NomenclatorController]);
 
 var NomenclatorController = function ($scope, $http) {
 	$scope.words = [	
@@ -60,16 +60,10 @@ var NomenclatorController = function ($scope, $http) {
 					})
 					.error(function (data, status, headers, config) {
 						console.log("lookup failed!");
-						console.log("word: ");
-						console.log(word);
 						console.log("data: ");
 						console.log(data);
 						console.log("status: ");
 						console.log(status);
-						console.log("headers: ");
-						console.log(headers);
-						console.log("config: ");
-						console.log(config);
 					})
 				
 			}
