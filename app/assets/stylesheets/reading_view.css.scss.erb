@@ -182,20 +182,27 @@ i.delete:active {
 }
 
 /*----------- MOBILE -------------*/
-@media only screen 
-	and (max-width : 320px) {
+/*@media (max-width: 640px) {*/
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+
+	body {
+		width:220px;
+	}
 
 	.main-content {
 		width:220px;
+		padding:0;
 	}
 
 	article.text {
-		width:220px;		
+		width:220px;
+		padding:25px 50px;
 	}
 	
 	section.vocabulary {
-		width:220px;
-		margin-left:0px;
+		width:280px;
+		padding:20px;
+		margin:0;
 	}
 
 }
