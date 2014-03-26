@@ -45,7 +45,8 @@
 									<i class="expansion {{ word.expanded }}"></i>
 									<span
 										editable-text="word.token"
-										e-form="textBtnForm">
+										e-form="textBtnForm"
+										onaftersave="updateDefinition(word)">
 										{{ word.token }}
 									</span>
 								</span>
@@ -61,11 +62,20 @@
 				</ul>
 	
 				<form name="addVocabularyListEntryForm">
-					<input ng-model="newToken" type="text" id="newTokenInput" placeholder="Add a word">
-					<button ng-click="addWord()" id="newFormSubmit">Add</button>
+					<input ng-model="newToken" type="text" id="newTokenInput" placeholder="Click a word or type here">
+					<button
+						class="vocab-box-buttons"
+						ng-click="addWord()"
+						id="newFormSubmit">
+						Add
+					</button>
 				</form>
 		
-				<button ng-click="getDefinitions()">Fetch Definitions</button>
+				<button
+					class="vocab-box-buttons"
+					ng-click="getDefinitions()">
+					Fetch Definitions
+				</button>
 			</section>
 		</div>
 

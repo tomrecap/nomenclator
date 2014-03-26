@@ -11,7 +11,7 @@ function NomenclatorController($scope, $http) {
 			// partOfSpeech: "adv.",
 			lemmaDefinition: "agreeably, charmingly, delightfully",
 			needToCheck: false,
-			expanded: true
+			expanded: false
 		},
 		{
 			token: "ridentem",
@@ -20,7 +20,7 @@ function NomenclatorController($scope, $http) {
 			// partOfSpeech: "v.",
 			lemmaDefinition: "to laugh",
 			needToCheck: false,
-			expanded: true
+			expanded: false
 		}	
 	];
 	
@@ -38,7 +38,10 @@ function NomenclatorController($scope, $http) {
 		}
 	};
 	
-	$scope.addWord = function () {		
+	$scope.addWord = function () {
+		if ( $scope.newToken == null ) {
+			return;
+		};
 		var newWord = {
 			token: $scope.newToken,
 			lemma: null,
@@ -77,7 +80,7 @@ function NomenclatorController($scope, $http) {
 				$http.get(apiUrl)
 					.success(function (data, status, requestHeaders, config) {
 						angular.extend(wordObject, data)
-						word.needToCheck = false
+						wordObject.needToCheck = false
 					})
 					.error(function (data, status, headers, config) {
 						console.log("lookup failed!");
@@ -86,5 +89,10 @@ function NomenclatorController($scope, $http) {
 						console.log("status: ");
 						console.log(status);
 					})
+	};
+	
+	$scope.updateDefinition = function (wordObject) {
+		wordObject.needToCheck = true;
+		$scope.defineWord(wordObject);
 	};
 }]);
