@@ -38,7 +38,7 @@
 				<ul class="vocabulary-entries">
 					<li ng-repeat="word in words">
 						<ul class="word-details">
-							<li ng-click="word.expanded = !word.expanded">{{ word.token }}</li>
+							<li ng-click="word.expanded = !word.expanded"><i class="expansion {{ word.expanded }}"></i> {{ word.token }} <i class="delete" ng-click="deleteWord(word)"></i></li>
 							<li>{{ definition(word) }}</li>
 						</ul>
 					</li>

@@ -4,23 +4,29 @@ nomenclator.controller("NomenclatorController", ["$scope", "$http",
 
 function NomenclatorController($scope, $http) {
 	$scope.words = [	
-		// {
-		// 	token: "dulce",
-		// 	lemma: "dulce",
-		// 	form: "adv. indec.",
-		// 	// partOfSpeech: "adv.",
-		// 	lemmaDefinition: "agreeably, charmingly, delightfully",
-		// 	needToCheck: false
-		// },
-		// {
-		// 	token: "ridentem",
-		// 	lemma: "rideo",
-		// 	form: "3rd sg. m. pres. act. prtcpl.",
-		// 	// partOfSpeech: "v.",
-		// 	lemmaDefinition: "to laugh",
-		// 	needToCheck: false
-		// }	
+		{
+			token: "dulce",
+			lemma: "dulce",
+			form: "adv. indec.",
+			// partOfSpeech: "adv.",
+			lemmaDefinition: "agreeably, charmingly, delightfully",
+			needToCheck: false,
+			expanded: true
+		},
+		{
+			token: "ridentem",
+			lemma: "rideo",
+			form: "3rd sg. m. pres. act. prtcpl.",
+			// partOfSpeech: "v.",
+			lemmaDefinition: "to laugh",
+			needToCheck: false,
+			expanded: true
+		}	
 	];
+	
+	$scope.visibleState = function (wordEntry) {
+		return wordEntry.expanded ? "+" : "-"
+	};
 	
 	$scope.definition = function (wordEntry) {
 		if ( wordEntry.lemma && wordEntry.expanded ) {
@@ -50,6 +56,11 @@ function NomenclatorController($scope, $http) {
 	$scope.addClickedWord = function ($event) {
 		$scope.newToken = angular.element($event.target).text().toLowerCase();
 		$scope.addWord();
+	};
+	
+	$scope.deleteWord = function (wordObject) {
+		var position = $scope.words.indexOf(wordObject);
+		$scope.words.splice(position, 1);
 	};
 	
 	$scope.getDefinitions = function () {
