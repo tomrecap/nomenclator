@@ -54,6 +54,8 @@ input[type="submit"]:hover, button:hover {
 	clear:both;
 }
 
+/*------------ LATIN TEXT -----------*/
+
 article.text {
 	display:block;
 	position:relative;
@@ -80,6 +82,8 @@ section.vocabulary {
 	padding:25px;
 	background:gainsboro;
 }
+
+/*----------- VOCAB LIST --------------*/
 
 section.vocabulary > ul {
 }
@@ -175,4 +179,22 @@ i.delete:active {
 .vocab-box-buttons:active {
 	position:relative;
 	top:2px;
+}
+
+/*----------- MOBILE -------------*/
+@media (max-width: 640px) {
+
+	.main-content {
+		width:440px;
+	}
+
+	article.text {
+		width:280px;		
+	}
+	
+	section.vocabulary {
+		width:280px;
+		margin-left:0px;
+	}
+
 }
