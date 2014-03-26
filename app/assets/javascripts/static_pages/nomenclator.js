@@ -1,4 +1,4 @@
-var nomenclator = angular.module("nomenclator", []);
+var nomenclator = angular.module("nomenclator", ["xeditable"]);
 
 nomenclator.controller("NomenclatorController", ["$scope", "$http",
 

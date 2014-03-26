@@ -102,6 +102,39 @@ i.expansion.true {
 	background-position: 0 -186px; width: 12px; height: 12px;
 }
 
+button.edit {
+	display:inline-block;
+	height:12px;
+	width:12px;
+	border: 1px solid #000;
+	background: url(<%= asset_path "icons-12.png" %>) no-repeat 0 0;
+	background-position: 0 -62px; width: 12px; height: 12px;
+}
+
+button.edit:hover {
+	background-position: 0 0px; width: 12px; height: 12px;
+}
+
+button.edit:active {
+	position:relative;
+	top:1px;
+}
+
+input.editable-input {
+	display:inline-block;
+	padding:0;
+	margin:0;
+	outline:0;
+	border:0;
+	background:transparent;
+	max-width:120px;
+}
+
+.editable-buttons > button {
+	padding:1px;
+	
+}
+
 i.delete {
 	display:inline-block;
 	height:12px;
@@ -112,6 +145,11 @@ i.delete {
 
 i.delete:hover {
 	background-position: 0 -248px; width: 12px; height: 12px;
+}
+
+i.delete:active {
+	position:relative;
+	top:2px;
 }
 
 section.vocabulary button {

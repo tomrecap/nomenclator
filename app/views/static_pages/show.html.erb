@@ -38,7 +38,23 @@
 				<ul class="vocabulary-entries">
 					<li ng-repeat="word in words">
 						<ul class="word-details">
-							<li ng-click="word.expanded = !word.expanded"><i class="expansion {{ word.expanded }}"></i> {{ word.token }} <i class="delete" ng-click="deleteWord(word)"></i></li>
+							<li>
+								<span
+									class="word-expansion"
+									ng-click="word.expanded = !word.expanded">
+									<i class="expansion {{ word.expanded }}"></i>
+									<span
+										editable-text="word.token"
+										e-form="textBtnForm">
+										{{ word.token }}
+									</span>
+								</span>
+								<button
+									class="edit"
+									ng-click="textBtnForm.$show()"
+									ng-hide="textBtnForm.$visible"></button>
+								<i class="delete" ng-click="deleteWord(word)"></i>
+							</li>
 							<li>{{ definition(word) }}</li>
 						</ul>
 					</li>
