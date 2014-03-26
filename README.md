@@ -3,13 +3,15 @@
 Nomenclator is a new front-end for [Perseus](http://www.perseus.tufts.edu/hopper/). I built it while learning AngularJS.
 
 ###Cool Features
-- Uses AngularJS to add words to a JavaScript object and bind the object to the vocabular list.
+- Uses AngularJS to add words to a JavaScript object and bind the object to the vocabulary list.
 - The backend is a RESTful API that uses Nokogiri to look up words in [Perseus under Philologic](http://perseus.uchicago.edu/) and translate the results into a JSON object with vocabulary data.
+- Uses [Angular-xeditable](http://vitalets.github.io/angular-xeditable/) to make vocabulary list items customizable.
+- Uses sprites for icons.
 
 ###To Do
-- Make vocab list items editable.
+- Make vocab list items editable. √
 - Make it possible to re-order the list.
-- Make list items collapsable.
+- Make list items collapsable. √
 - Make a mobile stylesheet.
 	- or a separate mobile interface?
 - Add citations to vocabulary entries.
