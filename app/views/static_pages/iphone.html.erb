@@ -1,0 +1,91 @@
+<div ng-app="nomenclator">
+	<div ng-controller="NomenclatorController">	
+			
+		<div id="sp-nav">
+			<nav>
+				<button ng-click="$spMenu.hide()">Close</button>
+				
+				<ul class="vocabulary-entries">
+					<li ng-repeat="word in words">
+						<ul class="word-details">
+							<li>
+								<span
+									class="word-expansion"
+									ng-click="word.expanded = !word.expanded">
+									<i class="expansion {{ word.expanded }}"></i>
+									<span
+										editable-text="word.token"
+										e-form="textBtnForm"
+										onaftersave="updateDefinition(word)">
+										{{ word.token }}
+									</span>
+								</span>
+								<button
+									class="edit"
+									ng-click="textBtnForm.$show()"
+									ng-hide="textBtnForm.$visible"></button>
+								<i class="delete" ng-click="deleteWord(word)"></i>
+							</li>
+							<li>{{ definition(word) }}</li>
+						</ul>
+					</li>
+				</ul>
+				
+				<form name="addVocabularyListEntryForm">
+					<input ng-model="newToken" type="text" id="newTokenInput" placeholder="Click a word or type here">
+					<button
+						class="vocab-box-buttons"
+						ng-click="addWord()"
+						id="newFormSubmit">
+						Add
+					</button>
+				</form>
+		
+				<button
+					class="vocab-box-buttons"
+					ng-click="getDefinitions()">
+					Fetch Definitions
+				</button>
+				
+			</nav>			
+		</div>
+			
+			
+		<div class="main-content group" id="sp-page">
+		
+			<button ng-click="$spMenu.toggle()" id="menu-button">Vocabulary</button>
+			
+			<article class="text" ng-click="addClickedWord($event)">
+				<h2>Catullus 51</h2>
+				<p>
+					 <span>Ille</span> <span>mi</span> <span>par</span> <span>esse</span> <span>deo</span> <span>videtur</span>,<br>
+					 <span>ille</span>, <span>si</span> <span>fas</span> <span>est</span>, <span>superare</span> <span>divos</span><br>
+					 <span>qui</span> <span>sedens</span> <span>adversus</span> <span>identidem</span> <span>te</span><br>
+					 <span>spectat</span> <span>et</span> <span>audit</span>
+				</p>
+
+				<p>
+					 <span>dulce</span> <span>ridentem</span>, <span>misero</span> <span>quod</span> <span>omnis</span><br>
+					 <span>eripit</span> <span>sensus</span> <span>mihi</span>: <span>nam</span> <span>simul</span> <span>te</span>,<br>
+					 <span>Lesbia</span>, <span>adspexi</span>, <span>nihil</span> <span>est</span> <span>super</span> <span>mi</span><br>
+					 <span>deest</span>
+				</p>
+
+				<p>
+					 <span>lingua</span> <span>sed</span> <span>torpet</span>, <span>tenuis</span> <span>sub</span> <span>artus</span><br>
+					 <span>flamma</span> <span>demanat</span>, <span>sonitu</span> <span>suopte</span><br>
+					 <span>tintinant</span> <span>aures</span>, <span>gemina</span> <span>teguntur</span><br>
+					 <span>lumina</span> <span>nocte</span>.
+				</p>
+
+				<p>
+					 <span>otium</span>, <span>Catulle</span>, <span>tibi</span> <span>molestum</span> <span>est</span>:<br>
+					 <span>otio</span> <span>exsultas</span> <span>nimiumque</span> <span>gestis</span>.<br>
+					 <span>otium</span> <span>et</span> <span>reges</span> <span>prius</span> <span>et</span> <span>beatas</span><br>
+					 <span>perdidit</span> <span>urbes</span>.
+				</p>
+			</article>
+		</div>
+
+	</div>
+</div>

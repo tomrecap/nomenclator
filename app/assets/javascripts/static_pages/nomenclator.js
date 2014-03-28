@@ -1,4 +1,4 @@
-var nomenclator = angular.module("nomenclator", ["xeditable"]);
+var nomenclator = angular.module("nomenclator", ["xeditable", 'shoppinpal.mobile-menu']);
 
 nomenclator.controller("NomenclatorController", ["$scope", "$http",
 
@@ -29,7 +29,9 @@ function NomenclatorController($scope, $http) {
 	};
 	
 	$scope.definition = function (wordEntry) {
-		if ( wordEntry.lemma && wordEntry.expanded ) {
+		if ( wordEntry.missing && wordEntry.expanded ) {
+			return "Not found"
+		} else if ( wordEntry.lemma && wordEntry.expanded ) {
 			return wordEntry.lemma + ": " + wordEntry.form + " " + wordEntry.lemmaDefinition
 		} else if ( wordEntry.expanded ){
 			return "Fetching definition; please wait."
@@ -80,14 +82,10 @@ function NomenclatorController($scope, $http) {
 				$http.get(apiUrl)
 					.success(function (data, status, requestHeaders, config) {
 						angular.extend(wordObject, data)
-						wordObject.needToCheck = false
+						angular.extend(wordObject, { missing: false, needToCheck: false })
 					})
 					.error(function (data, status, headers, config) {
-						console.log("lookup failed!");
-						console.log("data: ");
-						console.log(data);
-						console.log("status: ");
-						console.log(status);
+						angular.extend(wordObject, { missing: true, needToCheck: false })
 					})
 	};
 	

@@ -13,11 +13,15 @@ class DefinitionsController < ApplicationController
       form: doc.at_css("td.code")
     }
     
-    result.each do |key, value|
-      result[key] = strip_tags(value.to_s)
-    end
+    if result[:token]    
+      result.each do |key, value|
+        result[key] = strip_tags(value.to_s)
+      end
     
-    render json: result  
+      render json: result
+    else
+      render json: result, status: 404
+    end
   end
 
 end

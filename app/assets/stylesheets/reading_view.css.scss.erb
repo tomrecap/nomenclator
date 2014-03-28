@@ -22,14 +22,15 @@ body {
 	line-height:135%;
 }
 
-input, button {
+input, button, .close-vocab-box {
 	display:inline-block;
 /*	border: 2px solid black;*/
 /*	border-radius:5px;*/
 	padding:4px 8px;
+	background:#ccc;
 }
 
-input[type="submit"]:hover, button:hover {
+input[type="submit"]:hover, button:hover, .close-vocab-box:hover {
 	background:lightgreen;
 }
 
@@ -73,6 +74,15 @@ article.text a {
 	color:inherit;
 }
 
+/*----------- VOCAB LIST --------------*/
+
+#menu-button {
+	display:block;
+	position:fixed;
+	top:0px;
+	left:0px;
+}
+
 section.vocabulary {
 	display:block;
 	position:relative;
@@ -82,8 +92,6 @@ section.vocabulary {
 	padding:25px;
 	background:gainsboro;
 }
-
-/*----------- VOCAB LIST --------------*/
 
 section.vocabulary > ul {
 }
@@ -171,12 +179,12 @@ i.delete:active {
 	top:2px;
 }
 
-.vocab-box-buttons {
+.vocab-box-buttons, .close-vocab-box {
 	margin-top:5px;
 	margin-bottom:5px;
 }
 
-.vocab-box-buttons:active {
+.vocab-box-buttons:active, .close-vocab-box {
 	position:relative;
 	top:2px;
 }
