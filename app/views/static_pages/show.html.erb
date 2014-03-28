@@ -19,13 +19,17 @@
 										{{ word.token }}
 									</span>
 								</span>
-								&nbsp;&nbsp;
-								<button
-									class="edit"
-									ng-click="textBtnForm.$show()"
-									ng-hide="textBtnForm.$visible"></button>
-								&nbsp;&nbsp;
-								<i class="delete" ng-click="deleteWord(word)"></i>
+								<ul class="vocab-entry-buttons group">
+									<li class="vocab-entry-button">
+										<button
+											class="edit"
+											ng-click="textBtnForm.$show()"
+											ng-hide="textBtnForm.$visible"></button>										
+									</li>
+									<li class="vocab-entry-button">
+										<i class="delete" ng-click="deleteWord(word)"></i>
+									</li>
+								</ul>
 							</li>
 							<li>
 								<ul>
@@ -53,11 +57,11 @@
 					</button>
 				</form>
 		
-				<button
+				<!-- <button
 					class="topcoat-button"
 					ng-click="getDefinitions()">
 					Fetch Definitions
-				</button>
+				</button> -->
 				
 			</nav>			
 		</div>

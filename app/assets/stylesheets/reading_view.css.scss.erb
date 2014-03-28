@@ -133,6 +133,19 @@ i.expansion.true {
 	font-size:22px;
 }
 
+.vocab-entry-buttons {
+	display:block;
+	float:right;
+	position:relative;
+}
+
+.vocab-entry-button {
+	display:block;
+	float:left;
+	position:relative;
+	margin:auto 10px;
+}
+
 button.edit {
 	display:inline-block;
 	position:relative;
@@ -166,13 +179,13 @@ input.editable-input {
 	border-bottom:1px dashed #000;
 	background:transparent;
 	height:20px;
-	max-width:120px;
+/*	max-width:120px;*/
 }
 
 .editable-buttons > button {
 	display:inline-block;
 	position:relative;
-	padding:0px 5px;
+	padding:15px;
 	margin:0;
 	font-size:12px;
 	top:-3px;
@@ -200,19 +213,16 @@ i.delete:active {
 	top:2px;
 }
 
-.close-vocab-box {
-	width:100%;
+#newTokenInput {
+	width:90%;
+	margin:5px 5%;
 }
 
-.vocab-box-buttons, .close-vocab-box {
-	margin-top:5px;
-	margin-bottom:5px;
+#newFormSubmit {
+	float:right;
+	margin:5px 5%;
 }
 
-.vocab-box-buttons:active, .close-vocab-box {
-	position:relative;
-	top:2px;
-}
 
 /*----------- MOBILE -------------*/
 /*@media (max-width: 640px) {*/
