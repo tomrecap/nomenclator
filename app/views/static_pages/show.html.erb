@@ -1,7 +1,82 @@
 <div ng-app="nomenclator">
-	<div ng-controller="NomenclatorController">		
-		<div class="main-content group">
-	
+	<div ng-controller="NomenclatorController">	
+			
+		<div snap-drawer="right">
+			<nav>
+				<button snap-close class="close-vocab-box">Close</button>
+				
+				<ul class="vocabulary-entries">
+					<li class="topcoat-list__item" ng-repeat="word in words">
+						<ul class="word-details">
+							<li ng-click="word.expanded = !word.expanded">
+								<span
+									class="word-expansion"
+									>
+									<i class="expansion {{ word.expanded }}"></i>
+									<span
+										editable-text="word.token"
+										e-form="textBtnForm"
+										onaftersave="updateDefinition(word)">
+										{{ word.token }}
+									</span>
+								</span>
+								<button
+									class="edit"
+									ng-click="textBtnForm.$show()"
+									ng-hide="textBtnForm.$visible"></button>
+								<i class="delete" ng-click="deleteWord(word)"></i>
+							</li>
+							<li>{{ definition(word) }}</li>
+						</ul>
+					</li>
+				</ul>
+				
+				<form name="addVocabularyListEntryForm">
+					<input
+						ng-model="newToken"
+						type="text"
+						class="topcoat-text-input"
+						id="newTokenInput"
+						placeholder="Click a word or type here">
+					<button
+						class="topcoat-button"
+						ng-click="addWord()"
+						id="newFormSubmit">
+						Add
+					</button>
+				</form>
+		
+				<button
+					class="topcoat-button"
+					ng-click="getDefinitions()">
+					Fetch Definitions
+				</button>
+				
+			</nav>			
+		</div>
+			
+			
+		<div class="main-content group" snap-content>
+		
+			<div class="topcoat-navigation-bar">
+	      <div class="topcoat-navigation-bar__item left quarter">
+	      </div>
+			
+	    	<div class="topcoat-navigation-bar__item center half">
+	      	<h1 class="topcoat-navigation-bar__title">Nomenclator</h1>
+	      </div>
+			
+	      <div class="topcoat-navigation-bar__item right quarter">
+					<a
+						snap-toggle="right"
+						id="slide-menu-button"
+						class="topcoat-icon-button--quiet slide-menu-button">
+						<span class="topcoat-icon topcoat-icon--menu-stack"></span>
+					</a>
+	    	</div>
+			</div>
+
+
 			<article class="text" ng-click="addClickedWord($event)">
 				<h2>Catullus 51</h2>
 				<p>
@@ -32,50 +107,6 @@
 					 <span>perdidit</span> <span>urbes</span>.
 				</p>
 			</article>
-
-			<section class="vocabulary">
-				<ul class="vocabulary-entries">
-					<li ng-repeat="word in words">
-						<ul class="word-details">
-							<li>
-								<span
-									class="word-expansion"
-									ng-click="word.expanded = !word.expanded">
-									<i class="expansion {{ word.expanded }}"></i>
-									<span
-										editable-text="word.token"
-										e-form="textBtnForm"
-										onaftersave="updateDefinition(word)">
-										{{ word.token }}
-									</span>
-								</span>
-								<button
-									class="edit"
-									ng-click="textBtnForm.$show()"
-									ng-hide="textBtnForm.$visible"></button>
-								<i class="delete" ng-click="deleteWord(word)"></i>
-							</li>
-							<li>{{ definition(word) }}</li>
-						</ul>
-					</li>
-				</ul>
-	
-				<form name="addVocabularyListEntryForm">
-					<input ng-model="newToken" type="text" id="newTokenInput" placeholder="Click a word or type here">
-					<button
-						class="vocab-box-buttons"
-						ng-click="addWord()"
-						id="newFormSubmit">
-						Add
-					</button>
-				</form>
-		
-				<button
-					class="vocab-box-buttons"
-					ng-click="getDefinitions()">
-					Fetch Definitions
-				</button>
-			</section>
 		</div>
 
 	</div>
