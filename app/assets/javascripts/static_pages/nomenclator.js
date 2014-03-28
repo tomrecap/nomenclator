@@ -59,8 +59,10 @@ function NomenclatorController($scope, $http) {
 	};
 	
 	$scope.addClickedWord = function ($event) {
-		$scope.newToken = angular.element($event.target).text().toLowerCase();
-		$scope.addWord();
+		if ( angular.element($event.target).prop("tagName") == "SPAN" ) {
+			$scope.newToken = angular.element($event.target).text().toLowerCase();
+			$scope.addWord();			
+		};
 	};
 	
 	$scope.deleteWord = function (wordObject) {
