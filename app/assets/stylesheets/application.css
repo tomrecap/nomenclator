@@ -11,5 +11,5 @@
  *= require_self
  *= require_tree .
  *= require xeditable.css
- *= require ng-mobile-menu.min.css
+ *= require angular-snap.css
  */

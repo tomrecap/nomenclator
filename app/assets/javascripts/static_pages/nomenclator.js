@@ -1,4 +1,4 @@
-var nomenclator = angular.module("nomenclator", ["xeditable", 'shoppinpal.mobile-menu']);
+var nomenclator = angular.module("nomenclator", ["xeditable", "snap"]);
 
 nomenclator.controller("NomenclatorController", ["$scope", "$http",
 

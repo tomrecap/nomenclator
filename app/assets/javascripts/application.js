@@ -15,4 +15,5 @@
 //= require angular
 //= require_tree .
 //= require xeditable.js
-//= require ng-mobile-menu.min.js
+//= require snap.js
+//= require angular-snap.js

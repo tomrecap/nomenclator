@@ -1,9 +1,9 @@
 <div ng-app="nomenclator">
 	<div ng-controller="NomenclatorController">	
 			
-		<div id="sp-nav">
+		<div snap-drawer="right">
 			<nav>
-				<button ng-click="$spMenu.hide()" class="close-vocab-box">Close</button>
+				<button snap-close class="close-vocab-box">Close</button>
 				
 				<ul class="vocabulary-entries">
 					<li ng-repeat="word in words">
@@ -51,9 +51,9 @@
 		</div>
 			
 			
-		<div class="main-content group" id="sp-page">
+		<div class="main-content group" snap-content>
 		
-			<button ng-click="$spMenu.toggle()" id="menu-button">Vocabulary</button>
+			<button snap-toggle="right" id="menu-button">Vocabulary</button>
 			
 			<article class="text" ng-click="addClickedWord($event)">
 				<h2>Catullus 51</h2>
