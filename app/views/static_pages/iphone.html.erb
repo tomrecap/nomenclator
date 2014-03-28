@@ -3,15 +3,15 @@
 			
 		<div id="sp-nav">
 			<nav>
-				<button ng-click="$spMenu.hide()">Close</button>
+				<button ng-click="$spMenu.hide()" class="close-vocab-box">Close</button>
 				
 				<ul class="vocabulary-entries">
 					<li ng-repeat="word in words">
 						<ul class="word-details">
-							<li>
+							<li ng-click="word.expanded = !word.expanded">
 								<span
 									class="word-expansion"
-									ng-click="word.expanded = !word.expanded">
+									>
 									<i class="expansion {{ word.expanded }}"></i>
 									<span
 										editable-text="word.token"
