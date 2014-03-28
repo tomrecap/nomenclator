@@ -7,7 +7,7 @@ html, body, article, section, form, ul, li, form, input, button {
 	
 	-webkit-appearance:none;
 	
-	font:inherit;
+/*	font:inherit;*/
 	vertical-align:baseline;
 }
 
@@ -16,7 +16,7 @@ ul {
 }
 
 body {
-	font-size:18px;
+	font-size:22px;
 	font-family:Helvetica, sans-serif;
 	background:white;
 	line-height:135%;
@@ -45,7 +45,7 @@ input[type="submit"]:hover, button:hover, .close-vocab-box:hover {
 	margin-left:auto;
 	margin-right:auto;
 	
-	padding:50px;
+	padding:15px;
 	
 	background:white;
 }
@@ -129,9 +129,14 @@ i.expansion.true {
 	background-position: 0 -186px; width: 12px; height: 12px;
 }
 
+.token {
+	font-size:22px;
+}
+
 button.edit {
 	display:inline-block;
 	position:relative;
+	align:right;
 	top:0px;
 
 	height:13px;
@@ -179,6 +184,7 @@ input.editable-input {
 
 i.delete {
 	display:inline-block;
+	align:right;
 	height:12px;
 	width:12px;
 	background: url(<%= asset_path "icons-12.png" %>) no-repeat 0 0;

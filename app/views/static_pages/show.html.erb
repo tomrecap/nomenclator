@@ -3,30 +3,37 @@
 			
 		<div snap-drawer="right">
 			<nav>
-				<button snap-close class="close-vocab-box">Close</button>
-				
+				<h3 class="topcoat-list__header">Vocabulary</h3>
 				<ul class="vocabulary-entries">
-					<li class="topcoat-list__item" ng-repeat="word in words">
+					<li class="topcoat-list__item" ng-repeat="word in words" ng-click="word.expanded = !word.expanded">
 						<ul class="word-details">
-							<li ng-click="word.expanded = !word.expanded">
-								<span
-									class="word-expansion"
-									>
+							<li>
+								<span class="word-expansion">
+									&nbsp;&nbsp;
 									<i class="expansion {{ word.expanded }}"></i>
 									<span
+										class="token"
 										editable-text="word.token"
 										e-form="textBtnForm"
 										onaftersave="updateDefinition(word)">
 										{{ word.token }}
 									</span>
 								</span>
+								&nbsp;&nbsp;
 								<button
 									class="edit"
 									ng-click="textBtnForm.$show()"
 									ng-hide="textBtnForm.$visible"></button>
+								&nbsp;&nbsp;
 								<i class="delete" ng-click="deleteWord(word)"></i>
 							</li>
-							<li>{{ definition(word) }}</li>
+							<li>
+								<ul>
+									<li>{{ word.expanded ? word.lemma : null }}</li>
+									<li>{{ word.expanded ? word.form : null }}</li>
+									<li>{{ word.expanded ? word.lemmaDefinition : null }}</li>
+								</ul>
+							</li>
 						</ul>
 					</li>
 				</ul>
