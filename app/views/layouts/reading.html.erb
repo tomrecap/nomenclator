@@ -47,6 +47,8 @@
 							</li>
 							<li>
 								<ul>
+									<li>{{ (word.expanded && word.missing) ? "Not found" : null }}</li>
+									<li>{{ (word.expanded && !word.missing && !word.lemma) ? "Fetching definition; please wait." : null }}</li>
 									<li>{{ word.expanded ? word.lemma : null }}</li>
 									<li>{{ word.expanded ? word.form : null }}</li>
 									<li>{{ word.expanded ? word.lemmaDefinition : null }}</li>
