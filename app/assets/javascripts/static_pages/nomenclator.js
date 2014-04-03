@@ -4,24 +4,24 @@ nomenclator.controller("NomenclatorController", ["$scope", "$http",
 
 function NomenclatorController($scope, $http) {
 	$scope.words = [	
-		{
-			token: "dulce",
-			lemma: "dulce",
-			form: "adv. indec.",
-			// partOfSpeech: "adv.",
-			lemmaDefinition: "agreeably, charmingly, delightfully",
-			needToCheck: false,
-			expanded: false
-		},
-		{
-			token: "ridentem",
-			lemma: "rideo",
-			form: "3rd sg. m. pres. act. prtcpl.",
-			// partOfSpeech: "v.",
-			lemmaDefinition: "to laugh",
-			needToCheck: false,
-			expanded: false
-		}	
+		// {
+		// 	token: "dulce",
+		// 	lemma: "dulce",
+		// 	form: "adv. indec.",
+		// 	// partOfSpeech: "adv.",
+		// 	lemmaDefinition: "agreeably, charmingly, delightfully",
+		// 	needToCheck: false,
+		// 	expanded: false
+		// },
+		// {
+		// 	token: "ridentem",
+		// 	lemma: "rideo",
+		// 	form: "3rd sg. m. pres. act. prtcpl.",
+		// 	// partOfSpeech: "v.",
+		// 	lemmaDefinition: "to laugh",
+		// 	needToCheck: false,
+		// 	expanded: false
+		// }	
 	];
 	
 	$scope.visibleState = function (wordEntry) {
@@ -79,7 +79,7 @@ function NomenclatorController($scope, $http) {
 	};
 	
 	$scope.defineWord = function (wordObject) {
-				apiUrl = "definitions?q=" + wordObject.token
+				apiUrl = "/definitions?q=" + wordObject.token
 				
 				$http.get(apiUrl)
 					.success(function (data, status, requestHeaders, config) {

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta name="viewport" content="width=320">
+	
+  <title>Nomenclator</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+	
+</head>
+<body>
+
+<div ng-app="nomenclator">
+	<div ng-controller="NomenclatorController">	
+			
+		<div snap-drawer="right">
+			<nav>
+				<h3 class="topcoat-list__header">Vocabulary</h3>
+				<ul class="vocabulary-entries">
+					<li class="topcoat-list__item" ng-repeat="word in words" ng-click="word.expanded = !word.expanded">
+						<ul class="word-details">
+							<li>
+								<span class="word-expansion">
+									&nbsp;&nbsp;
+									<i class="expansion {{ word.expanded }}"></i>
+									<span
+										class="token"
+										editable-text="word.token"
+										e-form="textBtnForm"
+										onaftersave="updateDefinition(word)">
+										{{ word.token }}
+									</span>
+								</span>
+								<ul class="vocab-entry-buttons group">
+									<li class="vocab-entry-button">
+										<button
+											class="edit"
+											ng-click="textBtnForm.$show()"
+											ng-hide="textBtnForm.$visible"></button>										
+									</li>
+									<li class="vocab-entry-button">
+										<i class="delete" ng-click="deleteWord(word)"></i>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li>{{ word.expanded ? word.lemma : null }}</li>
+									<li>{{ word.expanded ? word.form : null }}</li>
+									<li>{{ word.expanded ? word.lemmaDefinition : null }}</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				
+				<form name="addVocabularyListEntryForm">
+					<input
+						ng-model="newToken"
+						type="text"
+						class="topcoat-text-input"
+						id="newTokenInput"
+						placeholder="Click a word or type here">
+					<button
+						class="topcoat-button"
+						ng-click="addWord()"
+						id="newFormSubmit">
+						Add
+					</button>
+				</form>
+		
+				<!-- <button
+					class="topcoat-button"
+					ng-click="getDefinitions()">
+					Fetch Definitions
+				</button> -->
+				
+			</nav>			
+		</div>
+			
+			
+		<div class="main-content group" snap-content>
+		
+			<div class="topcoat-navigation-bar">
+	      <div class="topcoat-navigation-bar__item left quarter">
+	      </div>
+			
+				<a href="<%= root_path %>">
+		    	<div class="topcoat-navigation-bar__item center half">
+		      	<h1 class="topcoat-navigation-bar__title">Nomenclator</h1>
+		      </div>
+				</a>
+			
+	      <div class="topcoat-navigation-bar__item right quarter">
+					<a
+						snap-toggle="right"
+						id="slide-menu-button"
+						class="topcoat-icon-button--quiet slide-menu-button">
+						<span class="topcoat-icon topcoat-icon--menu-stack"></span>
+					</a>
+	    	</div>
+			</div>
+
+
+			<article class="text" ng-click="addClickedWord($event)">
+			
+			<%= yield %>
+			
+			</article>
+		</div>
+
+	</div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+	document.addEventListener("touchstart", function() {},false);
+</script>
+
+</body>
+</html>
