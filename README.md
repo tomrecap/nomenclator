@@ -3,7 +3,7 @@
 [Nomenclator](http://nomenclator-mobile.herokuapp.com) is a new, mobile-friendly front-end for [Perseus](http://www.perseus.tufts.edu/hopper/). It's the easiest way to look up unfamiliar words while reading a Latin text. I built it while learning AngularJS.
 
 ###How To Use It
-Click on any word to add it to the vocabulary list. The vocab list is in the right side menu, which you can open by pulling on the text or tapping the hamburger icon. Right now, the only poem on the site is Catullus 51, but I'm working on adding more texts.
+Click on any word to add it to the vocabulary list. The vocab list is in the right side menu, which you can open by pulling on the text or tapping the hamburger icon. Right now there are only a couple of texts, but I'm working on adding more.
 
 ###Cool Features
 - Uses AngularJS to add words to a JavaScript object and bind the object to the vocabulary list.
