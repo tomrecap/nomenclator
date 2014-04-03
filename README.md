@@ -10,7 +10,7 @@ Click on any word to add it to the vocabulary list. The vocab list is in the rig
 - The backend is a RESTful API that uses Nokogiri to look up words in [Perseus under Philologic](http://perseus.uchicago.edu/) and translate the results into a JSON object with vocabulary data.
 - Lots of plugins
 	- Uses [Angular-xeditable](http://vitalets.github.io/angular-xeditable/) to make vocabulary list items customizable.
-	- Implements the side drawer menu with Snap.js, via [angular-snap](https://github.com/jtrussell/angular-snap.js). I tried [mmenu](http://mmenu.frebsite.nl/) and [ng-mobile-menu](http://shoppinpal.github.io/ng-mobile-menu/), but Snap.js turned out to be better for complex menu items. (For instance, each of my menue items includes a form for changing the vocabulary word.)
+	- Implements the side drawer menu with Snap.js, via [angular-snap](https://github.com/jtrussell/angular-snap.js). I tried [mmenu](http://mmenu.frebsite.nl/) and [ng-mobile-menu](http://shoppinpal.github.io/ng-mobile-menu/), but Snap.js turned out to be better for complex menu items. (For instance, each of my menu items includes a form for changing the vocabulary word.)
 	- Styling done with [TopCoat](http://topcoat.io/), via [topcoat-rails](https://github.com/esampaio/topcoat-rails). This was my first time using a styling framework, and it is really convenient. 
 - Uses sprites for icons.
 	- I made these by hand; no TopCoat.
