@@ -11,13 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140417164446) do
+ActiveRecord::Schema.define(:version => 20140417164645) do
 
   create_table "authors", :force => true do |t|
     t.string   "name",       :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "chapters", :force => true do |t|
+    t.string   "name"
+    t.integer  "number"
+    t.integer  "prose_book_id", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "chapters", ["prose_book_id"], :name => "index_chapters_on_prose_book_id"
 
   create_table "prose_books", :force => true do |t|
     t.string   "name"
@@ -41,11 +51,11 @@ ActiveRecord::Schema.define(:version => 20140417164446) do
   create_table "sections", :force => true do |t|
     t.string   "name"
     t.integer  "number"
-    t.integer  "prose_book_id", :null => false
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.integer  "chapter_id", :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "sections", ["prose_book_id"], :name => "index_sections_on_prose_book_id"
+  add_index "sections", ["chapter_id"], :name => "index_sections_on_chapter_id"
 
 end
