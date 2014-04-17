@@ -1,0 +1,2 @@
+class ProseBooksController < ApplicationController
+end

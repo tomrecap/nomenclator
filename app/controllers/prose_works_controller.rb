@@ -1,0 +1,2 @@
+class ProseWorksController < ApplicationController
+end

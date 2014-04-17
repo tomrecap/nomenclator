@@ -1,0 +1,7 @@
+<h1 class="page-title">Works By <%= @author.name.capitalize %></h1>
+
+<ul>
+	<% @prose_works.each do |prose_work| %>
+	<li><%= link_to prose_work.title, prose_work_url(prose_work) %></li>
+	<% end %>
+</ul>
