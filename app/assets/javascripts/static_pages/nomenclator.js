@@ -45,7 +45,7 @@ function NomenclatorController($scope, $http) {
 			return;
 		};
 		var newWord = {
-			token: $scope.newToken,
+			token: $scope.newToken.replace( /[^a-zA-Z ]/g, ''),
 			lemma: null,
 			form: null,
 			lemmaDefinition: null,
