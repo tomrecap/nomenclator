@@ -1,7 +1,13 @@
-<h1 class="page-title">Authors</h1>
+<h2>
+	Authors
+</h2>
 
-<ul>
-	<% @authors.each do |author| %>
-	<li><%= link_to author.name, author_url(author) %></li>
-	<% end %>
-</ul>
+<div class="topcoat-list">
+	<ul class="topcoat-list__container texts-list">
+		<% @authors.each do |author| %>
+		<li class="topcoat-list__item">
+			<%= link_to author.name.titleize, author_url(author) %>
+		</li>
+		<% end %>
+	</ul>
+</div>

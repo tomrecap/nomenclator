@@ -1,12 +1,12 @@
 <h2>
-	Chapters In <%= link_to @prose_work.title, prose_work_url(@prose_work) %> <%= link_to @prose_book.number, prose_book_url(@prose_book) %>, by <%= link_to @author.name.capitalize, author_url(@author) %>
+	Chapters In <%= link_to @prose_work.title.titleize, prose_work_url(@prose_work) %> <%= link_to @prose_book.number, prose_book_url(@prose_book) %>, by <%= link_to @author.name.titleize, author_url(@author) %>
 </h2>
 
 <div class="topcoat-list">
 	<ul class="topcoat-list__container texts-list">
 		<% @chapters.each do |chapter| %>
 		<li class="topcoat-list__item">
-			<%= link_to "#{chapter.number}. #{chapter.try(&:title)}", chapter_url(chapter) %>
+			<%= link_to "#{chapter.number}. #{chapter.try(&:title).try(&:titleize)}", chapter_url(chapter) %>
 		</li>
 		<% end %>
 	</ul>

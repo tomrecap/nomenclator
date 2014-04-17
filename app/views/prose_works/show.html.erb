@@ -1,5 +1,5 @@
 <h2>
-	Books In <%= @prose_work.title %>, by <%= link_to @prose_work.author.name.capitalize, author_url(@prose_work.author) %>
+	Books In <%= @prose_work.title.titleize %>, by <%= link_to @prose_work.author.name.titleize, author_url(@prose_work.author) %>
 </h2>
 
 <div class="topcoat-list">

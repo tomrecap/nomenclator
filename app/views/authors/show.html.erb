@@ -6,9 +6,13 @@
 	<ul class="topcoat-list__container texts-list">
 		<% @prose_works.each do |prose_work| %>
 		<li class="topcoat-list__item">
-			<%= link_to prose_work.title, prose_work_url(prose_work) %>
+			<%= link_to prose_work.title.titleize, prose_work_url(prose_work) %>
 		</li>
 		<% end %>
 	</ul>
 
 </div>
+
+<p>
+	<%= link_to "List of Authors", authors_url %>
+</p>
