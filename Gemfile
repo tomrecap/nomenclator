@@ -12,7 +12,6 @@ gem 'angularjs-rails'
 gem 'ngmin-rails'
 gem 'topcoat-rails'
 
-gem 'annotate'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -29,6 +28,9 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  
+  gem 'annotate'
+  gem 'faker'
 end
 
 group :development, :test do
