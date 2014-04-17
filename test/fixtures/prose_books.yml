@@ -8,6 +8,7 @@
 #  prose_work_id :integer          not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  words         :text
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

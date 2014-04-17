@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140417165747) do
+ActiveRecord::Schema.define(:version => 20140417185038) do
 
   create_table "authors", :force => true do |t|
     t.string   "name",       :null => false
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20140417165747) do
     t.integer  "prose_book_id", :null => false
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.text     "words"
   end
 
   add_index "chapters", ["prose_book_id"], :name => "index_chapters_on_prose_book_id"
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20140417165747) do
     t.integer  "prose_work_id", :null => false
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.text     "words"
   end
 
   add_index "prose_books", ["prose_work_id"], :name => "index_prose_books_on_prose_work_id"
@@ -44,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20140417165747) do
     t.integer  "author_id",  :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "words"
   end
 
   add_index "prose_works", ["author_id"], :name => "index_prose_works_on_author_id"
@@ -54,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20140417165747) do
     t.integer  "chapter_id", :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "words"
   end
 
   add_index "sections", ["chapter_id"], :name => "index_sections_on_chapter_id"
