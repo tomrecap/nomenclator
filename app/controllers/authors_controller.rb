@@ -6,7 +6,7 @@ class AuthorsController < ApplicationController
   
   def show
     @author = Author.includes(:prose_works).find(params[:id])
-    @prose_works = @author.prose_works
+    @prose_works = @author.prose_works.sort_by(&:title)
   end
 
 end
