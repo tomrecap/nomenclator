@@ -9,15 +9,15 @@ class TextsController < ApplicationController
   end
   
   def catullus
-    render :catullus, layout: "reading"
+    render :catullus, layout: "reading_old"
   end
   
   def vergil
-    render :vergil, layout: "reading"
+    render :vergil, layout: "reading_old"
   end
   
   def vf
-    render :vf, layout: "reading"
+    render :vf, layout: "reading_old"
   end
 
 end
