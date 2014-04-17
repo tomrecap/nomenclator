@@ -11,7 +11,7 @@
 #
 
 class ProseWork < ActiveRecord::Base
-  attr_accessible :title, :author_id
+  attr_accessible :author_id, :title, :words
   
   validates :author_id, presence: true
   validates :title,

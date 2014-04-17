@@ -12,7 +12,7 @@
 #
 
 class ProseBook < ActiveRecord::Base
-  attr_accessible :number, :title, :prose_work_id
+  attr_accessible :number, :prose_work_id, :title, :words
   
   validates :number,
     presence: true,

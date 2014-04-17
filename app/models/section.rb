@@ -12,7 +12,7 @@
 #
 
 class Section < ActiveRecord::Base
-  attr_accessible :number, :title, :chapter_id
+  attr_accessible :number, :title, :chapter_id, :words
   
   validates :number,
     presence: true,
