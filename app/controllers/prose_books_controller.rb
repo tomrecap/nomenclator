@@ -1,11 +1,7 @@
 class ProseBooksController < ApplicationController
 
-  def index
-    @prose_books = ProseBook.all
-  end
-  
   def show
-    @prose_book = ProseBook.includes(:chapters).find(params[:id])
+    @prose_book = ProseBook.includes(:chapters, :prose_work, :author).find(params[:id])
     @chapters = @prose_book.chapters
   end
 

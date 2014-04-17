@@ -1,7 +1,14 @@
-<h1 class="page-title">Works By <%= @author.name.capitalize %></h1>
+<h2>
+	Books In <%= @prose_work.title %>, by <%= link_to @prose_work.author.name.capitalize, author_url(@prose_work.author) %>
+</h2>
 
-<ul>
-	<% @prose_works.each do |prose_work| %>
-	<li><%= link_to prose_work.title, prose_work_url(prose_work) %></li>
-	<% end %>
-</ul>
+<div class="topcoat-list">
+	<ul class="topcoat-list__container texts-list">
+		<% @prose_books.each do |prose_book| %>
+		<li class="topcoat-list__item">
+			<%= link_to "#{prose_book.number}. #{prose_book.title}", prose_book_url(prose_book) %>
+		</li>
+		<% end %>
+	</ul>
+	
+</div>

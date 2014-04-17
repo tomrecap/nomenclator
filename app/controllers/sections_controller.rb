@@ -1,11 +1,12 @@
 class SectionsController < ApplicationController
-
-  def index
-    @sections = Section.all
-  end
   
   def show
-    @section = Section.find(params[:id])
+    @section = Section.includes(
+      :chapter,
+      :prose_book,
+      :prose_work,
+      :author
+    ).find(params[:id])
   end
 
 end

@@ -1,11 +1,12 @@
 class ChaptersController < ApplicationController
-
-  def index
-    @chapters = Chapter.all
-  end
   
   def show
-    @chapter = Chapter.includes(:sections).find(params[:id])
+    @chapter = Chapter.includes(
+      :sections,
+      :prose_book,
+      :prose_work,
+      :author
+    ).find(params[:id])
     @sections = @chapter.sections
   end
 

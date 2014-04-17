@@ -1,8 +1,0 @@
-<div class="topcoat-list">
-	<h3 class="topcoat-list__header">Prose Works</h3>
-
-<ul class="topcoat-list__container">
-	<% @prose_works.each do |prose_work| %>
-	<li class="topcoat-list__item"><%= link_to prose_work.title, prose_work_url(prose_work) %></li>
-	<% end %>
-</ul>

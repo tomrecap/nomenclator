@@ -1,8 +1,4 @@
 class ProseWorksController < ApplicationController
-
-  def index
-    @prose_works = ProseWork.all
-  end
   
   def show
     @prose_work = ProseWork.includes(:prose_books, :author).find(params[:id])
