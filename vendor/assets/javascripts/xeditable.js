@@ -497,6 +497,7 @@ angular.module('xeditable').factory('editableController',
       }
 
       self.inputEl.addClass('editable-input');
+      self.inputEl.addClass('editable-input-sidedrawer');
       self.inputEl.attr('ng-model', '$data');
 
       // add directiveName class to editor, e.g. `editable-text`
@@ -1512,8 +1513,8 @@ angular.module('xeditable').factory('editableThemes', function() {
       inputTpl:     '',
       errorTpl:     '<div class="editable-error" ng-show="$error" ng-bind="$error"></div>',
       buttonsTpl:   '<span class="editable-buttons"></span>',
-      submitTpl:    '<button type="submit">save</button>',
-      cancelTpl:    '<button type="button" ng-click="$form.$cancel()">cancel</button>'
+      submitTpl:    '<button type="submit" class="topcoat-button">save</button>',
+      cancelTpl:    '<button type="button" class="topcoat-button" ng-click="$form.$cancel()">cancel</button>'
     },
 
     //bs2

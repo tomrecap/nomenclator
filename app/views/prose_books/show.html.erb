@@ -7,6 +7,7 @@
 		<% @chapters.each do |chapter| %>
 		<li class="topcoat-list__item">
 			<%= link_to "#{chapter.number}. #{chapter.try(&:title).try(&:titleize)}", chapter_url(chapter) %>
+			<%= link_to "(Full Text)", full_text_chapter_url(chapter) %>
 		</li>
 		<% end %>
 	</ul>

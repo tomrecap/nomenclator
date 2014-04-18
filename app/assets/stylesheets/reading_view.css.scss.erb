@@ -86,7 +86,7 @@ article.text p {
 article.text a {
 	text-decoration:none;
 	font:inherit;
-	color:inherit;
+/*	color:inherit;*/
 }
 
 article.text {
@@ -184,10 +184,17 @@ button.edit:active {
 	top:2px;
 }
 
-input.editable-input {
-	display:inline-block;
+form.editable-text {
+	display:block;
+	position:relative;
+	width:100%;
+}
+
+input.editable-input.editable-input-sidedrawer {
+	display:block;
 	padding:0;
 	margin:0;
+	margin-bottom:5px;
 	outline:0;
 	border:0;
 	border-bottom:1px dashed #000;
@@ -198,11 +205,11 @@ input.editable-input {
 
 .editable-buttons > button {
 	display:inline-block;
-	position:relative;
-	padding:15px;
-	margin:0;
-	font-size:12px;
-	top:-3px;
+/*	position:relative;*/
+/*	padding:15px;*/
+/*	margin:0;*/
+/*	font-size:12px;*/
+/*	top:-3px;*/
 }
 
 .editable-buttons > button:active {

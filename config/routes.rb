@@ -1,13 +1,16 @@
 Nomenclator::Application.routes.draw do
 
   resources :authors, only: [:index, :show]
-  resources :chapters, only: :show
+  resources :chapters, only: :show do
+    get "full_text", on: :member
+  end
+  
   resource :definitions, only: :show
   resources :prose_books, only: :show
   resources :prose_works, only: :show
   resources :sections, only: :show
   resource :static_pages, only: :show
-  resources :texts do
+  resources :texts, only: :index do
     get "catullus", on: :collection # to: "texts#catullus"
     get "vergil", on: :collection # to: "texts#vergil"
     get "vf", on: :collection # to: "texts#vf"
